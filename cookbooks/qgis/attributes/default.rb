@@ -1,0 +1,1 @@
+default['qgis']['version']='ltr'
