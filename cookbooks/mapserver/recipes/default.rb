@@ -11,6 +11,12 @@
 #add repo if needed 
 #
 
+include_recipe 'apache2'
+
+#make sure cgi is on
+include_recipe 'apache2::mod_cgi'
+
+
 apt_repository "ubuntu-unstable" do
   uri "http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu"
   distribution node['lsb']['codename']

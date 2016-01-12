@@ -23,4 +23,4 @@ end
 
 package 'gdal-bin'
 
-package 'python-proj'
+package 'python-pyproj'
