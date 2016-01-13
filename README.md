@@ -11,6 +11,5 @@ Currently supported are:
 + QGIS 
 + GDAL (including Proj.4)
 + GRASS
-+ GeoNetwork 
 + PyWPS
 + R (not technically spatial)
