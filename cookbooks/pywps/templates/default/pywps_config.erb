@@ -1,0 +1,52 @@
+[wps]
+encoding=<%= node[:pywps][:encoding] %>
+title=<%= node[:pywps][:title] %>
+version=<%= node[:pywps][:pywpsVersion] %>
+abstract=<%= node[:pywps][:abstract] %>
+fees=<%= node[:pywps][:fees] %>
+constraints=<%= node[:pywps][:constraints] %>
+serveraddress=<%= node[:pywps][:serverurl] %>
+keywords=<%= node[:pywps][:keywords] %>
+lang=<%= node[:pywps][:lang] %>
+
+[provider]
+providerName=<%= node[:pywps][:providerName] %>
+individualName=<%= node[:pywps][:individualName] %>
+positionName=<%= node[:pywps][:positionName] %>
+role=<%= node[:pywps][:role] %>
+deliveryPoint=<%= node[:pywps][:deliveryPoint] %>
+city=<%= node[:pywps][:city] %>
+postalCode=<%= node[:pywps][:postalCode] %>
+country=<%= node[:pywps][:country] %>
+electronicMailAddress=<%= node[:pywps][:electronicMailAddress] %>
+providerSite=<%= node[:pywps][:providerSite] %>
+phoneVoice=<%= node[:pywps][:phoneVoice] %>
+phoneFacsimile=<%= node[:pywps][:phoneFacsimile] %>
+administrativeArea=<%= node[:pywps][:administrativeArea] %>
+hoursofservice=<%= node[:pywps][:hoursofservice] %>
+contactinstructions=<%= node[:pywps][:contactinstructions] %>
+
+[server]
+maxoperations=<%= node[:pywps][:maxoperations] %>
+maxinputparamlength=<%= node[:pywps][:maxinputparamlength] %>
+maxfilesize=<%= node[:pywps][:maxfilesize] %>
+tempPath=<%= node[:pywps][:tempPath] %>
+processesPath=<%= node[:pywps][:processesPath] %>
+outputUrl=<%= node[:pywps][:outputUrl] %>
+outputPath=<%= node[:pywps][:outputPath] %>
+logFile=<%= node[:pywps][:logFile] %>
+logLevel=<%= node[:pywps][:logLevel] %>
+
+[grass]
+path=<%= node[:pywps][:path] %>
+addonPath=<%= node[:pywps][:addonPath] %>
+version=<%= node[:pywps][:grassVersion] %>
+gui=<%= node[:pywps][:gui] %>
+gisbase=<%= node[:pywps][:gisbase] %>
+ldLibraryPath=<%= node[:pywps][:ldLibraryPath] %>
+gisdbase=<%= node[:pywps][:gisdbase] %>
+
+[mapserver]
+mapserveraddress=<%= node[:pywps][:mapserveraddress] %>
+projdatapath=<%= node[:pywps][:projdatapath] %>
+projs=<%= node[:pywps][:projs] %>
