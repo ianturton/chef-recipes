@@ -21,6 +21,4 @@ end
 
 # install package
 
-package 'gdal-bin'
-
-package 'python-pyproj'
+package ['gdal-bin', 'python-pyproj']
