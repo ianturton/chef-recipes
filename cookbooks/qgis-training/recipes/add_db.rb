@@ -20,11 +20,11 @@ pgis_connection_info = {:host => "127.0.0.1",
         :password => node['postgresql']['password']['pgis']
        }
 
-postgresql_database_user 'pgis' do
+postgresql_database 'training' do
   connection postgresql_connection_info
-  username 'pgis'
-  password 'astun'
-  action :create
+  sql "CREATE ROLE pgis LOGIN SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION PASSWORD '#{node['postgresql']['password']['pgis']}';"
+  action :query
+  not_if "echo '\\dg'| psql -p #{node['postgresql']['config']['port']} -U postgres training| grep -c pgis"
 end
 
 postgresql_database 'training' do
@@ -38,15 +38,17 @@ postgresql_database 'training' do
   not_if "echo '\\dx'| psql -p #{node['postgresql']['config']['port']} -U postgres training| grep -c postgis"
 end
 
-postgresql_database_user 'pgis' do
-  connection postgresql_connection_info
-  username 'pgis'
-  database_name 'training'
-  action :grant
-  privileges [:all]
-end
 
 bash 'load' do
-  code "pg_restore -C -d training trainingDB.backup -p #{node[:postgresql][:config][:port]} -U postgres"
+  code "pg_restore -C -d training trainingDB.backup -O -p #{node[:postgresql][:config][:port]} -U postgres"
   not_if "echo '\\dn'| psql -p #{node['postgresql']['config']['port']} -U postgres training| grep -c crime"
+  ignore_failure true
+end
+
+# grant all privileges on all tables in foo db
+postgresql_database_user 'pgis' do
+  connection postgresql_connection_info
+  database_name 'training'
+  privileges [:all]
+  action :grant
 end
